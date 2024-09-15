@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f4f82;
+    font-family: Arial, sans-serif;
+}
+
+.header-title:hover {
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-link {
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}

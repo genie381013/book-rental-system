@@ -1,0 +1,57 @@
+.author-label {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #b0ff3b;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.details {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.bookImage {
+    max-width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bookImage img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.table-container {
+    flex-grow: 1;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f9f9f9;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}

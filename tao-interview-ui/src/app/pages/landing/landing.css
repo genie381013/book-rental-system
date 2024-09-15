@@ -1,0 +1,40 @@
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a responsive grid */
+    gap: 20px; /* Spacing between cards */
+    padding: 20px; /* Adds padding around the grid */
+    justify-items: center; /* Centers the cards horizontally */
+}
+
+/* Individual book cards */
+.bookImages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd; /* Light border around the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 10px;
+    transition: transform 0.2s; /* Animation for hover effect */
+}
+
+.bookImages:hover {
+    transform: scale(1.05); /* Slightly enlarges the card on hover */
+    cursor: pointer;
+}
+
+.bookImages img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* Rounded corners for images */
+    margin-bottom: 10px; /* Space between the image and the title */
+}
+
+.desc {
+    font-size: 24px; /* Adjusts the font size for the description */
+    text-align: center;
+    margin-bottom: 20px; /* Space between the description and the grid */
+    font-weight: bold;
+}
