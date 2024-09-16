@@ -40,10 +40,16 @@ The application follows a typical three-tier architecture:
 1. Clone repository
 2. Build backend with Maven:
    ```bash
-   mvn clean install
+   mvn clean install -DskipTests
 3. The database is set up when application is by running the Liquibase migrations. 
    Add any new scripts required to `src/main/resources/changelogs/master-changelog.xml`.
-4. Configure application properties as needed in src/main/resources/application.yml.
+4. Make the following changes to `src/main/resources/application.yml`:
+   1. Before first run: 
+      - update `spring.jpa.hibernate.ddl-auto` to `create`
+      - update `spring.liquibase.enabled` to `false`
+   2. After first run:
+      - update `spring.jpa.hibernate.ddl-auto` to `validate`
+      - remove `spring.liquibase.enabled` (default is `true`)
 
 ## Running the Application
 1. Start docker

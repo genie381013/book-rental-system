@@ -1,8 +1,9 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./loginPopup.css";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useUser} from "../../UserContext";
+import ErrorModal from "../modal/errorModal";
 
 export default function LoginPopup() {
     const [showPopup, setShowPopup] = useState(false);
@@ -13,6 +14,11 @@ export default function LoginPopup() {
 
     const userContext = useUser();
     const user = userContext.user;
+
+    // error modal
+    const [showError, setShowError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
     const togglePopup = () => {
         setShowPopup(!showPopup);
     };
@@ -33,6 +39,10 @@ export default function LoginPopup() {
         navigate('/profile');
     };
 
+    const handleCloseError = () => {
+        setShowError(false);
+    };
+
     const handleLogin = () => {
         const request = {username: username, password: password};
         axios.postForm("/api/login", request)
@@ -42,6 +52,10 @@ export default function LoginPopup() {
                     axios.post("/api/user/login", request)
                         .then(res => { userContext.updateUser(res.data); });
                 }
+            })
+            .catch(() => {
+                setErrorMessage("Wrong username or password");
+                setShowError(true);
             });
     }
 
@@ -75,10 +89,11 @@ export default function LoginPopup() {
 
     return (
         <div className="profile-container">
-      <span className="profile-name" onClick={togglePopup}>
-        {user?.username ? "Profile" : "Sign in"}
-      </span>
-            {showPopup && handlePopupContent()}
+            <span className="profile-name" onClick={togglePopup}>
+                {user?.username ? "Profile" : "Sign in"}
+            </span>
+                {showPopup && handlePopupContent()}
+            <ErrorModal show={showError} handleClose={handleCloseError} errorMessage={errorMessage}/>
         </div>
     );
 }

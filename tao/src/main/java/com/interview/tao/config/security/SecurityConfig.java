@@ -26,7 +26,7 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(customizer -> customizer
-                        .requestMatchers("/user/login", "/logout", "/books", "/books/{id}", "/swagger-ui/**").permitAll()
+                        .requestMatchers("/login", "/logout", "/books", "/books/{id}", "/swagger-ui/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authenticationProvider(authenticationProvider())
